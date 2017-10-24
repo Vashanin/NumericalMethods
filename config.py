@@ -19,6 +19,6 @@ IMPROPER_INTEGRATION_BOUNDARIES = {"a": 0.3,
                                    "b": 1}
 
 # system of differential equation
-DIFFERENTIAL_EQUATION_CONDITIONS = {"a" : 2.09, "b" : 2.45, "c": 1.65, "d" : 1.25,
-                                    "x0" : 3.73, "y0" : 2.55,
-                                    "t0" : 21, "t" : 51}
+#DIFFERENTIAL_EQUATION_CONDITIONS = {"a" : 2.09, "b" : 2.45, "c": 1.65, "d" : 1.25, "x0" : 3.73, "y0" : 2.55, "t0" : 21, "t" : 51}
+
+DIFFERENTIAL_EQUATION_CONDITIONS = {"a" : 1.2, "b" : 0.6, "c": 0.8, "d" : 0.3, "x0" : 2, "y0" : 1, "t0" : 0, "t" : 30}

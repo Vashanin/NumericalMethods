@@ -1,5 +1,6 @@
 from config import DIFFERENTIAL_EQUATION_CONDITIONS, DEFAULT_EPSILON
 import numpy
+import matplotlib.pyplot as plt
 
 class System_Of_Differential_Equations:
     f1 = None
@@ -59,7 +60,7 @@ class System_Of_Differential_Equations:
         x = [self.x0]
         y = [self.y0]
 
-        for i in range(len(t)):
+        for i in range(len(t) - 1):
             k1 = self.k1(h=h, y=y[i], x=x[i])
             q1 = self.q1(h=h, y=y[i], x=x[i])
 
@@ -82,10 +83,36 @@ class System_Of_Differential_Equations:
         return {"t": t, "x": x, "y": y}
 
     def draw_graphic(self):
-        data = self.__calculate_for_step__(DEFAULT_EPSILON ** 0.25)
-        
+        data = self.__calculate_for_step__(0.0001)
+
         t = data["t"]
+        print(len(t))
         x = data["x"]
+        print(len(x))
         y = data["y"]
+        print(len(y))
 
+        plt.figure(1).subplots_adjust(bottom=0.05, left=0.05, right=0.95, top=0.95, hspace=0.2)
 
+        plt.subplot(211)
+        plt.xlabel('t')
+
+        plt.title("Time series")
+
+        plt.ylim(-10, 10)
+        plt.plot(t, x, color="blue", label="x(t) - prey")
+        plt.plot(t, y, color="red", label="y(t) - predator")
+
+        plt.legend()
+        plt.grid()
+
+        plt.subplot(212)
+        plt.xlabel("Prey")
+        plt.ylabel("Predator")
+        plt.title("Prey-Predator dependency")
+
+        plt.plot(x, y, color="red")
+        plt.legend()
+        plt.grid()
+
+        plt.show()
