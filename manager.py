@@ -1,5 +1,6 @@
 from math_analysis import Derivation, Integration, Improper_Integral
 from config import isDebug, DIFFERENCIATION_POINT
+from differential_equation_system import System_Of_Differential_Equations
 
 class Manager:
     __instance = None
@@ -145,6 +146,9 @@ class Manager:
                 if isDebug:
                     print("Exception: " + str(e.args))
 
-#Improper_Integral().count(method="cutting")
-manager = Manager.inst()
-manager.run()
+if isDebug:
+    system_of_differential_equations = System_Of_Differential_Equations()
+    system_of_differential_equations.draw_graphic()
+else:
+    manager = Manager.inst()
+    manager.run()
