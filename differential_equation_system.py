@@ -83,7 +83,31 @@ class System_Of_Differential_Equations:
         return {"t": t, "x": x, "y": y}
 
     def draw_graphic(self):
-        data = self.__calculate_for_step__(0.0001)
+        epsilon = DEFAULT_EPSILON
+
+        h = epsilon ** 0.25
+
+        print("SYSTEM OF DIFFERENTIAL EQUATIONS\n")
+
+        i = 0
+        while True:
+            data = self.__calculate_for_step__(h)
+            test_data = self.__calculate_for_step__(h/2)
+
+            Rx = max([abs(test_data["x"][2*i] - data["x"][i]) for i in range(len(data["x"]))]) / (2**4 - 1)
+            Ry = max([abs(test_data["y"][2 * i] - data["y"][i]) for i in range(len(data["y"]))]) / (2**4 - 1)
+            R = max([Rx, Ry])
+            print("[Iteration {}]\n"
+                  "Estimated error: Rx = {}\n"
+                  "                 Ry = {}\n"
+                  "                 R = {}\n"
+                  "                 epsilon = {}".format(i, Rx, Ry, R, epsilon))
+
+            if (R > epsilon):
+                h /= 2
+                i += 1
+            else:
+                break
 
         t = data["t"]
         print(len(t))
