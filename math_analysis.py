@@ -22,9 +22,18 @@ def draw_function(function, lower, upper):
 """
 
 class Derivation:
-    __accuracy_order__ = None
-    __initial_function__ = None
-    __epsilon__ = DEFAULT_EPSILON
+    def __init__(self, accuracy_order=4):
+        try:
+            self.__initial_function__ = DIFFERENCIATION_FUNCTION
+            self.__epsilon__ = DEFAULT_EPSILON
+
+            if (accuracy_order == 2 or accuracy_order == 4):
+                self.__accuracy_order__ = accuracy_order
+            else:
+                raise Exception("Invalid accuracy order!")
+
+        except Exception as e:
+            print("Differentiation constructor error: " + str(e.args))
 
     @staticmethod
     def maximize_the_derivative(function, order_of_the_derivation, lower, upper):
@@ -51,18 +60,9 @@ class Derivation:
         return self.__epsilon__
     def set_initial_function(self, initial_function):
         self.__initial_function__ = initial_function
-
-    def __init__(self, accuracy_order = 4):
-        try:
-            self.__initial_function__ = DIFFERENCIATION_FUNCTION
-
-            if (accuracy_order == 2 or accuracy_order == 4):
-                self.__accuracy_order__ = accuracy_order
-            else:
-                raise Exception("Invalid accuracy order!")
-
-        except Exception as e:
-            print("Differentiation constructor error: " + str(e.args))
+    def set_accuracy_order(self, accuracy_order):
+        if (accuracy_order == 2 or accuracy_order == 4):
+            self.__accuracy_order__ = accuracy_order
 
     def count(self, initial_point, disp=False):
         result = 0.0
@@ -107,25 +107,19 @@ class Derivation:
         plt.legend()
         plt.grid()
 
-        # sample_function = lambda x: (-1)*numpy.sin(x**4 + 5*x**3 + 3*x + 11)*(4*x**3 + 15*x**2 + 3)
         plt.subplot(212)
-        second_diff = Derivation(accuracy_order=4)
 
         plt.plot(atoms, self.count(atoms), color="red", label="df(x)/dx")
-        # plt.plot(atoms, sample_function(atoms), color="blue", label="Sample")
         plt.legend()
         plt.grid()
 
         plt.show()
 
 class Integration:
-    __initial_function__ = None
-    __boundaries__ = None
-    __epsilon__ = DEFAULT_EPSILON
-
     def __init__(self, initial_function=INTEGRATION_FUNCTION, boundaries=INTEGRATION_BOUNDARIES):
         self.__initial_function__ = initial_function
         self.__boundaries__ = boundaries
+        self.__epsilon__ = DEFAULT_EPSILON
 
     def set_epsilon(self, epsilon):
         self.__epsilon__ = epsilon
@@ -323,6 +317,8 @@ class Improper_Integral(Integration):
             result = self.__cutting_method__(disp=disp)
         elif method == "quadrature-formulas":
             result = self.__quadrature_formulas_method__(disp=disp)
+        elif method == "monte-carlo":
+            result = self.__monte_carlo_method__(disp=disp)
         else:
             print("Undefined numerical method: {}".format(method))
 
@@ -360,7 +356,7 @@ class Improper_Integral(Integration):
 
             result = iterations[len(iterations) - 1]
             if disp:
-                print("\tImproper integral value: " + str(result))
+                print("\tImproper integral value: {}\n".format(result))
 
             return {"integral_value": result}
         except Exception as e:
@@ -400,3 +396,28 @@ class Improper_Integral(Integration):
         except Exception as e:
             if isDebug:
                 print("Exception occured in Improper_Integral().__quadrature_formulas_method__: " + str(e.args))
+    def __monte_carlo_method__(self, disp):
+        try:
+            if disp:
+                print("IMPROPER INTEGRAL")
+
+            a = self.__boundaries__["a"]
+            b = self.__boundaries__["b"]
+            f = self.__initial_function__
+
+            amount_of_simulations = 1000000
+            simulations = numpy.random.uniform(low=a, high=b, size=amount_of_simulations)
+
+            integral_value = 0.0
+            for x in simulations:
+                integral_value += f(x) * (b - a)
+
+            integral_value /= amount_of_simulations
+
+            if disp:
+                print("\tImproper integral value: {}\n".format(integral_value))
+
+            return {"integral_value": integral_value}
+        except Exception as e:
+            if isDebug:
+                print("Exception occured at __monte_carlo_method__: " + str(e.args))

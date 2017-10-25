@@ -1,28 +1,20 @@
-from config import DIFFERENTIAL_EQUATION_CONDITIONS, DEFAULT_EPSILON
+from config import DIFFERENTIAL_EQUATION_CONDITIONS, DEFAULT_EPSILON, isDebug
 import numpy
 import matplotlib.pyplot as plt
 
-class System_Of_Differential_Equations:
+class Differential_Equations_System:
     f1 = None
     f2 = None
-
-    k1 = None
-    k2 = None
-    k3 = None
-    k4 = None
-
-    q1 = None
-    q2 = None
-    q3 = None
-    q4 = None
 
     x = None
     y = None
 
     x0 = None
     y0 = None
-    t_start = None
-    t_end = None
+    start = None
+    end = None
+
+    epsilon = None
 
     def __init__(self):
         initial_coditions = DIFFERENTIAL_EQUATION_CONDITIONS
@@ -34,109 +26,112 @@ class System_Of_Differential_Equations:
         self.x0 = initial_coditions["x0"]
         self.y0 = initial_coditions["y0"]
 
-        self.t_start = initial_coditions["t0"]
-        self.t_end = initial_coditions["t"]
+        self.start = initial_coditions["start"]
+        self.end = initial_coditions["end"]
 
-        self.f1 = lambda y, x: a*x - b*x*y
-        self.f2 = lambda y, x: -c*y + d*x*y
+        self.f1 = lambda t, y, x: a*x - b*x*y
+        self.f2 = lambda t, y, x: -c*y + d*x*y
 
-        self.k1 = lambda h, y, x: h * self.f1(y, x)
-        self.k2 = lambda h, y, x, k1, q1: h * self.f1(y + k1/2, x + q1/2)
-        self.k3 = lambda h, y, x, k2, q2: h * self.f1(y + k2/2, x + q2/2)
-        self.k4 = lambda h, y, x, k3, q3: h * self.f1(y + k3, x + q3)
+        self.epsilon = DEFAULT_EPSILON
 
-        self.q1 = lambda h, y, x: h * self.f2(y, x)
-        self.q2 = lambda h, y, x, k1, q1: h * self.f2(y + k1/2, x + q1/2)
-        self.q3 = lambda h, y, x, k2, q2: h * self.f2(y + k2/2, x + q2/2)
-        self.q4 = lambda h, y, x, k3, q3: h * self.f2(y + k3, x + q3)
+    def __calculate_for_step__(self, h :float):
 
-        self.x = lambda x, q1, q2, q3, q4: x + (q1 + 2 * q2 + 2 * q3 + q4)/6
-        self.y = lambda y, k1, k2, k3, k4: y + (k1 + 2 * k2 + 2 * k3 + k4)/6
-
-    def __calculate_for_step__(self, h):
-
-        t = numpy.arange(self.t_start, self.t_end + h, h)
+        t = numpy.arange(self.start, self.end + h, h)
 
         x = [self.x0]
         y = [self.y0]
 
         for i in range(len(t) - 1):
-            k1 = self.k1(h=h, y=y[i], x=x[i])
-            q1 = self.q1(h=h, y=y[i], x=x[i])
+            k1 = h * self.f1(t=t[i], y=y[i], x=x[i])
+            q1 = h * self.f2(t=t[i], y=y[i], x=x[i])
 
-            k2 = self.k2(h=h, y=y[i], x=x[i], k1=k1, q1=q1)
-            q2 = self.q2(h=h, y=y[i], x=x[i], k1=k1, q1=q1)
+            k2 = h * self.f1(t=t[i] + h/2, y=y[i] + k1/2, x=x[i] + q1/2)
+            q2 = h * self.f2(t=t[i] + h/2, y=y[i] + k1/2, x=x[i] + q1/2)
 
-            k3 = self.k3(h=h, y=y[i], x=x[i], k2=k2, q2=q2)
-            q3 = self.q3(h=h, y=y[i], x=x[i], k2=k2, q2=q2)
+            k3 = h * self.f1(t=t[i] + h/2, y=y[i] + k2/2, x=x[i] + q2/2)
+            q3 = h * self.f2(t=t[i] + h/2, y=y[i] + k2/2, x=x[i] + q2/2)
 
-            k4 = self.k4(h=h, y=y[i], x=x[i], k3=k3, q3=q3)
-            q4 = self.q4(h=h, y=y[i], x=x[i], k3=k3, q3=q3)
+            k4 = h * self.f1(t=t[i] + h, y=y[i] + k3, x=x[i] + q3)
+            q4 = h * self.f2(t=t[i] + h, y=y[i] + k3, x=x[i] + q3)
 
             x.append(
-                self.x(x=x[i], q1=q1, q2=q2, q3=q3, q4=q4)
+                x[i] + (k1 + 2*k2 + 2*k3 + k4)/6
             )
             y.append(
-                self.y(y=y[i], k1=k1, k2=k2, k3=k3, k4=k4)
+                y[i] + (q1 + 2*q2 + 2*q3 + q4)/6
             )
 
-        return {"t": t, "x": x, "y": y}
+        return t, x, y
+
+    def __count_error__(self, h, t, x, y):
+        try:
+            t_test, x_test, y_test = self.__calculate_for_step__(h / 2)
+
+            x_difference = []
+            y_difference = []
+
+            for i in range(len(t)):
+                if (len(t_test) > 2*i) and (t[i] == t_test[2*i]):
+                    x_difference.append(abs(x[i] - x_test[2*i]))
+                    y_difference.append(abs(y[i] - y_test[2*i]))
+
+            Rx = max(x_difference)
+            Ry = max(y_difference)
+            R = max([Rx, Ry])
+
+            return R, Rx, Ry
+
+        except Exception as e:
+            if isDebug:
+                print("Exception occured at count_error function: " + str(e.args))
 
     def draw_graphic(self):
-        epsilon = DEFAULT_EPSILON
+        try:
+            h = self.epsilon ** 0.25
+            print("SYSTEM OF DIFFERENTIAL EQUATIONS")
 
-        h = epsilon ** 0.25
+            i = 0
+            while True:
+                t, x, y = self.__calculate_for_step__(h)
 
-        print("SYSTEM OF DIFFERENTIAL EQUATIONS\n")
+                R, Rx, Ry = self.__count_error__(h, t, x, y)
 
-        i = 0
-        while True:
-            data = self.__calculate_for_step__(h)
-            test_data = self.__calculate_for_step__(h/2)
+                print("[Iteration {}]\n"
+                      "Estimated error: Rx = {}\n"
+                      "                 Ry = {}\n"
+                      "                 R = {}\n"
+                      "                 epsilon = {}\n"
+                      "                 h = {}".format(i, Rx, Ry, R, self.epsilon, h))
 
-            Rx = max([abs(test_data["x"][2*i] - data["x"][i]) for i in range(len(data["x"]))]) / (2**4 - 1)
-            Ry = max([abs(test_data["y"][2 * i] - data["y"][i]) for i in range(len(data["y"]))]) / (2**4 - 1)
-            R = max([Rx, Ry])
-            print("[Iteration {}]\n"
-                  "Estimated error: Rx = {}\n"
-                  "                 Ry = {}\n"
-                  "                 R = {}\n"
-                  "                 epsilon = {}".format(i, Rx, Ry, R, epsilon))
+                if (R > self.epsilon):
+                    h /= 2
+                    i += 1
+                else:
+                    break
 
-            if (R > epsilon):
-                h /= 2
-                i += 1
-            else:
-                break
+            plt.figure(1).subplots_adjust(bottom=0.05, left=0.05, right=0.95, top=0.95, hspace=0.2)
 
-        t = data["t"]
-        print(len(t))
-        x = data["x"]
-        print(len(x))
-        y = data["y"]
-        print(len(y))
+            plt.subplot(211)
+            plt.xlabel('t')
 
-        plt.figure(1).subplots_adjust(bottom=0.05, left=0.05, right=0.95, top=0.95, hspace=0.2)
+            plt.title("Time series")
 
-        plt.subplot(211)
-        plt.xlabel('t')
+            plt.plot(t, x, color="blue", label="x(t) - prey")
+            plt.plot(t, y, color="red", label="y(t) - predator")
 
-        plt.title("Time series")
+            plt.legend()
+            plt.grid()
 
-        plt.ylim(-10, 10)
-        plt.plot(t, x, color="blue", label="x(t) - prey")
-        plt.plot(t, y, color="red", label="y(t) - predator")
+            plt.subplot(212)
+            plt.xlabel("Prey")
+            plt.ylabel("Predator")
+            plt.title("Prey-Predator dependency")
 
-        plt.legend()
-        plt.grid()
+            plt.plot(x, y, color="red")
+            plt.legend()
+            plt.grid()
 
-        plt.subplot(212)
-        plt.xlabel("Prey")
-        plt.ylabel("Predator")
-        plt.title("Prey-Predator dependency")
-
-        plt.plot(x, y, color="red")
-        plt.legend()
-        plt.grid()
-
-        plt.show()
+            plt.show()
+        except Exception as e:
+            if isDebug:
+                print("Exception occures in draw_graphic method: " + str(e.args))
