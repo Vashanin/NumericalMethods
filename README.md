@@ -15,8 +15,8 @@ List of сommands:
     integral set-boundaries [lower] [upper] - set boundaries of integration(change default value)
      
     improper-integral count [method] - count integral, using mentioned numerical method
-    timproper-integral set-epsilon [value] - set computation error(change default value)
-    timproper-integral set-boundaries [lower] [upper] - set boundaries of integration(change default value)
+    improper-integral set-epsilon [value] - set computation error(change default value)
+    improper-integral set-boundaries [lower] [upper] - set boundaries of integration(change default value)
         
     equations-system count - compute result and show as graphic 
     
