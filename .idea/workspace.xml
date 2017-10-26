@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cda8838f-3c41-4266-af20-232f3c8beb8a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/differential_equation_system.py" afterPath="$PROJECT_DIR$/equations_system.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager.py" afterPath="$PROJECT_DIR$/manager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/math_analysis.py" afterPath="$PROJECT_DIR$/math_analysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interpolation/lagrange_method.py" afterPath="$PROJECT_DIR$/interpolation/lagrange_method.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,7 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="equations_system.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="equations_system.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/equations_system.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -76,6 +72,18 @@
                 <element signature="e#0#77#0" expanded="true" />
                 <element signature="e#165#3830#0" expanded="false" />
                 <element signature="e#892#1585#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lagrange_method.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/interpolation/lagrange_method.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+              <folding>
+                <element signature="e#116#3090#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -114,6 +122,7 @@
         <option value="/media/vashanin/KINGSTON/labs/lab3/linear_approximation.py" />
         <option value="$PROJECT_DIR$/math_analysis.py" />
         <option value="$PROJECT_DIR$/equations_system.py" />
+        <option value="$PROJECT_DIR$/interpolation/lagrange_method.py" />
       </list>
     </option>
   </component>
@@ -157,6 +166,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="NumericalMethods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NumericalMethods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NumericalMethods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="interpolation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -551,8 +574,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="false" />
-            <element signature="e#116#3266#0" expanded="false" />
+            <element signature="e#116#3090#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -624,8 +646,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="false" />
-            <element signature="e#116#3266#0" expanded="false" />
+            <element signature="e#116#3090#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -674,17 +695,6 @@
             <element signature="e#0#77#0" expanded="true" />
             <element signature="e#165#3830#0" expanded="false" />
             <element signature="e#892#1585#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interpolation/lagrange_method.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-            <element signature="e#116#3266#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -767,6 +777,16 @@
             <element signature="e#0#77#0" expanded="true" />
             <element signature="e#165#3830#0" expanded="false" />
             <element signature="e#892#1585#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interpolation/lagrange_method.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#116#3090#0" expanded="false" />
           </folding>
         </state>
       </provider>
