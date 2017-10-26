@@ -3,19 +3,6 @@ import numpy
 import matplotlib.pyplot as plt
 
 class Differential_Equations_System:
-    f1 = None
-    f2 = None
-
-    x = None
-    y = None
-
-    x0 = None
-    y0 = None
-    start = None
-    end = None
-
-    epsilon = None
-
     def __init__(self):
         initial_coditions = DIFFERENTIAL_EQUATION_CONDITIONS
         a = initial_coditions["a"]
@@ -34,7 +21,7 @@ class Differential_Equations_System:
 
         self.epsilon = DEFAULT_EPSILON
 
-    def __calculate_for_step__(self, h :float):
+    def calculate_for_step(self, h :float):
 
         t = numpy.arange(self.start, self.end + h, h)
 
@@ -63,9 +50,9 @@ class Differential_Equations_System:
 
         return t, x, y
 
-    def __count_error__(self, h, t, x, y):
+    def count_error(self, h, t, x, y):
         try:
-            t_test, x_test, y_test = self.__calculate_for_step__(h / 2)
+            t_test, x_test, y_test = self.calculate_for_step(h / 2)
 
             x_difference = []
             y_difference = []
@@ -92,9 +79,9 @@ class Differential_Equations_System:
 
             i = 0
             while True:
-                t, x, y = self.__calculate_for_step__(h)
+                t, x, y = self.calculate_for_step(h)
 
-                R, Rx, Ry = self.__count_error__(h, t, x, y)
+                R, Rx, Ry = self.count_error(h, t, x, y)
 
                 print("[Iteration {}]\n"
                       "Estimated error: Rx = {}\n"

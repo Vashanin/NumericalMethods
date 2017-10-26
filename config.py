@@ -12,6 +12,7 @@ DIFFERENCIATION_POINT = (numpy.sqrt(3) - 9) / 5
 # integration
 INTEGRATION_FUNCTION = lambda x: numpy.sin(1 / (x**2 + 1))
 INTEGRATION_BOUNDARIES = {"a": 0.5, "b": 0.8}
+
 # improper integration
 IMPROPER_INTEGRATION_FUNCTION = lambda x: x/((numpy.abs(1 - x**2)) ** (0.2))
 IMPROPER_INTEGRATION_BOUNDARIES = {"a": 0.3, "b": 1}

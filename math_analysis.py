@@ -6,29 +6,14 @@ from config import isDebug, DIFFERENCIATION_FUNCTION, INTEGRATION_FUNCTION, INTE
     IMPROPER_INTEGRATION_BOUNDARIES, IMPROPER_INTEGRATION_FUNCTION, DEFAULT_EPSILON
 from interpolation.lagrange_method import Lagrange_Interpolation
 
-"""
-def draw_function(function, lower, upper):
-    atoms = numpy.arange(lower, upper, 0.001)
-    plt.xlabel('X')
-    plt.ylabel('Y')
-    plt.figure(1).subplots_adjust(bottom=0.05, left=0.05, right=0.95, top=0.95, hspace=0.1)
-
-    plt.title("Differentiation")
-
-    plt.plot(atoms, function(atoms), color="blue", label="f(x)")
-    plt.legend()
-    plt.grid()
-    plt.show()
-"""
-
 class Derivation:
     def __init__(self, accuracy_order=4):
         try:
-            self.__initial_function__ = DIFFERENCIATION_FUNCTION
+            self.initial_function = DIFFERENCIATION_FUNCTION
             self.__epsilon__ = DEFAULT_EPSILON
 
             if (accuracy_order == 2 or accuracy_order == 4):
-                self.__accuracy_order__ = accuracy_order
+                self.accuracy_order = accuracy_order
             else:
                 raise Exception("Invalid accuracy order!")
 
@@ -48,10 +33,10 @@ class Derivation:
 
         return (-1) * res.fun[0]
 
-    def __get_max_valuation__(self):
+    def get_max_valuation(self):
         return 1e12
-    def __get_step__(self):
-        M = self.__get_max_valuation__()
+    def get_step(self):
+        M = self.get_max_valuation()
         e = self.get_epsilon()
         return ((25*e)/(4*M))**(1/5)
     def set_epsilon(self, epsilon: float):
@@ -59,10 +44,10 @@ class Derivation:
     def get_epsilon(self):
         return self.__epsilon__
     def set_initial_function(self, initial_function):
-        self.__initial_function__ = initial_function
+        self.initial_function = initial_function
     def set_accuracy_order(self, accuracy_order):
         if (accuracy_order == 2 or accuracy_order == 4):
-            self.__accuracy_order__ = accuracy_order
+            self.accuracy_order = accuracy_order
 
     def count(self, initial_point, disp=False):
         result = 0.0
@@ -71,17 +56,17 @@ class Derivation:
             print("DIFFERENTIATION")
 
         def D(h):
-            f = self.__initial_function__
+            f = self.initial_function
             x = initial_point
 
             return (f(x+h) - f(x-h)) / (2*h)
 
-        h = self.__get_step__()
+        h = self.get_step()
 
-        if (self.__accuracy_order__ == 2):
+        if (self.accuracy_order == 2):
             result = D(h)
 
-        if (self.__accuracy_order__ == 4):
+        if (self.accuracy_order == 4):
             result = (4*D(h) - D(2*h)) / 3
 
         if isDebug:
@@ -89,9 +74,12 @@ class Derivation:
                   "\tD(h): {}\n"
                   "\tD(2h): {}\n".format(h, D(h), D(2*h)))
 
+        error_estimation = (3 * self.__epsilon__) / (2 * h) + (self.get_max_valuation() * h ** 4) / 30
+
         if disp:
             print("\tPoint: {}\n"
-                  "\tDifferential value: {}\n".format(initial_point, result))
+                  "\tDifferential value: {}\n"
+                  "\tError estimation: {}\n".format(initial_point, result, error_estimation))
 
         return result
     def draw(self, lower, upper):
@@ -103,7 +91,7 @@ class Derivation:
         plt.subplot(211)
         plt.title("Differentiation")
 
-        plt.plot(atoms, self.__initial_function__(atoms), color="blue", label="f(x)")
+        plt.plot(atoms, self.initial_function(atoms), color="blue", label="f(x)")
         plt.legend()
         plt.grid()
 
@@ -117,41 +105,41 @@ class Derivation:
 
 class Integration:
     def __init__(self, initial_function=INTEGRATION_FUNCTION, boundaries=INTEGRATION_BOUNDARIES):
-        self.__initial_function__ = initial_function
-        self.__boundaries__ = boundaries
-        self.__epsilon__ = DEFAULT_EPSILON
+        self.initial_function = initial_function
+        self.boundaries = boundaries
+        self.epsilon = DEFAULT_EPSILON
 
     def set_epsilon(self, epsilon):
-        self.__epsilon__ = epsilon
+        self.epsilon = epsilon
     def set_boundaries(self, boundaries):
-        self.__boundaries__ = boundaries
+        self.boundaries = boundaries
     def set_initial_function(self, initial_function):
-        self.__initial_function__ = initial_function
+        self.initial_function = initial_function
 
     def count(self, method, disp=True, show_error_estimation=True):
         result = None
 
         if (method == "trapezoid"):
-            result = self.__trapezoid_method__(disp=disp, show_error_estimetion=show_error_estimation)
+            result = self.trapezoid_method(disp=disp, show_error_estimetion=show_error_estimation)
         elif (method == "simpson"):
-            result = self.__simpson_method__(disp=disp, show_error_estimetion=show_error_estimation)
+            result = self.simpson_method(disp=disp, show_error_estimetion=show_error_estimation)
         elif (method == "gaussian"):
-            result = self.__gaussian_method__(disp=disp, show_error_estimetion=show_error_estimation)
+            result = self.gaussian_method(disp=disp, show_error_estimetion=show_error_estimation)
         else:
             print("Undefined numerical method: {}".format(method))
 
         return result
 
-    def __trapezoid_method__(self, disp, show_error_estimetion):
+    def trapezoid_method(self, disp, show_error_estimetion):
         try:
             if disp:
                 print("TRAPEZOID METHOD")
 
             def get_step(M2):
-                a = self.__boundaries__["a"]
-                b = self.__boundaries__["b"]
+                a = self.boundaries["a"]
+                b = self.boundaries["b"]
 
-                max_h = numpy.sqrt(12 * self.__epsilon__ /
+                max_h = numpy.sqrt(12 * self.epsilon /
                                    (M2 * numpy.abs(b - a)))
                 min_n = numpy.abs(b-a) / max_h
 
@@ -161,19 +149,19 @@ class Integration:
 
                 return {"amount": int(n), "step": float(h)}
 
-            a = self.__boundaries__["a"]
-            b = self.__boundaries__["b"]
+            a = self.boundaries["a"]
+            b = self.boundaries["b"]
 
-            M2 = Derivation.maximize_the_derivative(self.__initial_function__,
-                                         order_of_the_derivation=4,
-                                         lower=a,
-                                         upper=b)
-
+            M2 = Derivation.maximize_the_derivative(self.initial_function,
+                                                    order_of_the_derivation=4,
+                                                    lower=a,
+                                                    upper=b)
+            M2 = abs(M2)
             optimal = get_step(M2)
             n = optimal["amount"]
             h = optimal["step"]
 
-            f = self.__initial_function__
+            f = self.initial_function
             x = list(numpy.arange(a, b+h, h))
 
             integral = f(x[0]) + f(x[n])
@@ -186,10 +174,11 @@ class Integration:
             error_estimation = None
 
             if show_error_estimetion:
-                M2 = Derivation.maximize_the_derivative(self.__initial_function__,
-                                             order_of_the_derivation=2,
-                                             lower=a,
-                                             upper=b)
+                M2 = Derivation.maximize_the_derivative(self.initial_function,
+                                                        order_of_the_derivation=2,
+                                                        lower=a,
+                                                        upper=b)
+                M2 = abs(M2)
                 error_estimation = M2 * numpy.abs(b - a) * (h ** 2) / 12
 
             if isDebug:
@@ -207,15 +196,15 @@ class Integration:
         except Exception as e:
             if isDebug:
                 print("Exception occurs in Integration().__trapezoid_method__: " + str(e.args))
-    def __simpson_method__(self, disp, show_error_estimetion):
+    def simpson_method(self, disp, show_error_estimetion):
         try:
             if disp:
                 print("SIMPSON METHOD")
 
             def get_step(amount_of_segments):
-                return (self.__boundaries__["b"] - self.__boundaries__["a"]) / (2 * amount_of_segments)
+                return (self.boundaries["b"] - self.boundaries["a"]) / (2 * amount_of_segments)
 
-            f = self.__initial_function__
+            f = self.initial_function
 
             m = 0
             iteration = []
@@ -223,7 +212,7 @@ class Integration:
                 m += 1
                 h = get_step(m)
 
-                x = list(numpy.arange(self.__boundaries__["a"], self.__boundaries__["b"] + h, h))
+                x = list(numpy.arange(self.boundaries["a"], self.boundaries["b"] + h, h))
 
                 integral = 0.0
                 integral += f(x[0])
@@ -237,22 +226,27 @@ class Integration:
                 integral += f(x[2 * m])
                 integral /= (3/h)
 
+                if isDebug:
+                    print("\t[Iteration #{}]\n"
+                          "\tm: {}\n"
+                          "\tIntegral value: {}\n".format(len(iteration), m, integral))
+
                 iteration.append(integral)
                 iteration_amount = len(iteration)
                 if (iteration_amount > 1):
-                    if (numpy.abs(iteration[iteration_amount - 1] - iteration[iteration_amount-2]) < self.__epsilon__):
+                    if (numpy.abs(iteration[iteration_amount - 1] - iteration[iteration_amount-2]) < self.epsilon):
                         break
 
             integral = iteration[len(iteration)-1]
-            a = self.__boundaries__["a"]
-            b = self.__boundaries__["b"]
+            a = self.boundaries["a"]
+            b = self.boundaries["b"]
 
             error_estimation = None
             if show_error_estimetion:
-                M4 = Derivation.maximize_the_derivative(self.__initial_function__,
-                                             order_of_the_derivation=4,
-                                             lower=a,
-                                             upper=b)
+                M4 = Derivation.maximize_the_derivative(self.initial_function,
+                                                        order_of_the_derivation=4,
+                                                        lower=a,
+                                                        upper=b)
                 error_estimation = M4 * numpy.abs(b - a) * (get_step(m) ** 4) / 180
 
             if isDebug:
@@ -272,15 +266,15 @@ class Integration:
         except Exception as e:
             if isDebug:
                 print("Exception occured in Integration().__simpson_method__: " + str(e.args))
-    def __gaussian_method__(self, disp, show_error_estimetion):
+    def gaussian_method(self, disp, show_error_estimetion):
         try:
             if disp:
                 print("GAUSSIAN METHOD")
 
-            a = self.__boundaries__["a"]
-            b = self.__boundaries__["b"]
+            a = self.boundaries["a"]
+            b = self.boundaries["b"]
 
-            f = lambda t: self.__initial_function__((a+b)/2 + t*(b-a)/2)
+            f = lambda t: self.initial_function((a + b) / 2 + t * (b - a) / 2)
 
             Xi = [-0.90617985, -0.53846931, 0, 0.53846931, 0.90617985]
             q = [0.23692688, 0.47862868, 0.56888889, 0.47862868, 0.23692688]
@@ -307,33 +301,33 @@ class Improper_Integral(Integration):
     def __init__(self, initial_function=IMPROPER_INTEGRATION_FUNCTION, boundaries=IMPROPER_INTEGRATION_BOUNDARIES):
         Integration.__init__(self, initial_function, boundaries)
 
-        self.__initial_function__ = initial_function
-        self.__boundaries__ = boundaries
+        self.initial_function = initial_function
+        self.boundaries = boundaries
 
     def count(self, method, disp=True, show_error_estimation=True):
         result = None
 
         if method == "cutting":
-            result = self.__cutting_method__(disp=disp)
+            result = self.cutting_method(disp=disp)
         elif method == "quadrature-formulas":
-            result = self.__quadrature_formulas_method__(disp=disp)
+            result = self.quadrature_formulas_method(disp=disp)
         elif method == "monte-carlo":
-            result = self.__monte_carlo_method__(disp=disp)
+            result = self.monte_carlo_method(disp=disp)
         else:
             print("Undefined numerical method: {}".format(method))
 
         return result
 
-    def __cutting_method__(self, disp):
+    def cutting_method(self, disp):
         try:
             if disp:
                 print("IMPROPER INTEGRAL")
 
-            a = self.__boundaries__["a"]
-            b = self.__boundaries__["b"]
+            a = self.boundaries["a"]
+            b = self.boundaries["b"]
 
             integral = Integration()
-            integral.set_initial_function(self.__initial_function__)
+            integral.set_initial_function(self.initial_function)
             iterations = []
 
             delta = 1e-15
@@ -349,7 +343,7 @@ class Improper_Integral(Integration):
                 iterations.append(value["integral_value"])
 
                 if (len(iterations) > 1):
-                    if (numpy.abs(iterations[len(iterations) - 1] - iterations[len(iterations) - 2]) < (self.__epsilon__)**2):
+                    if (numpy.abs(iterations[len(iterations) - 1] - iterations[len(iterations) - 2]) < (self.epsilon)**2):
                         break
 
                 delta -= delta/10
@@ -362,21 +356,21 @@ class Improper_Integral(Integration):
         except Exception as e:
             if isDebug:
                 print("Exception occured in Improper_Integral().__cutting_method__: " + str(e.args))
-    def __quadrature_formulas_method__(self, disp):
+    def quadrature_formulas_method(self, disp):
         try:
             if disp:
                 print("IMPROPER INTEGRAL")
 
-            a = self.__boundaries__["a"]
-            b = self.__boundaries__["b"]
+            a = self.boundaries["a"]
+            b = self.boundaries["b"]
 
             nodes_amount = 10
 
             optimal_nodes = [((b-a)/2) * numpy.cos((2*k + 1) * numpy.pi / (2 * nodes_amount)) + ((b+a)/2) for k in range(nodes_amount)]
 
-            lagrange_interpolation = Lagrange_Interpolation(function=self.__initial_function__,
-                                                           nodes=optimal_nodes,
-                                                           boundaries_of_interpolation=self.__boundaries__)
+            lagrange_interpolation = Lagrange_Interpolation(function=self.initial_function,
+                                                            nodes=optimal_nodes,
+                                                            boundaries_of_interpolation=self.boundaries)
 
             interpolant = lambda x: lagrange_interpolation.interpolant(x)
 
@@ -385,7 +379,7 @@ class Improper_Integral(Integration):
                       "\tInterpolation nodes: {}\n".format(nodes_amount, optimal_nodes))
                 lagrange_interpolation.draw_graphic()
 
-            integral = Integration(initial_function=interpolant, boundaries=self.__boundaries__)
+            integral = Integration(initial_function=interpolant, boundaries=self.boundaries)
             integral.set_epsilon(epsilon=1e-4)
             result = integral.count(method="simpson", disp=isDebug, show_error_estimation=False)
 
@@ -396,14 +390,14 @@ class Improper_Integral(Integration):
         except Exception as e:
             if isDebug:
                 print("Exception occured in Improper_Integral().__quadrature_formulas_method__: " + str(e.args))
-    def __monte_carlo_method__(self, disp):
+    def monte_carlo_method(self, disp):
         try:
             if disp:
                 print("IMPROPER INTEGRAL")
 
-            a = self.__boundaries__["a"]
-            b = self.__boundaries__["b"]
-            f = self.__initial_function__
+            a = self.boundaries["a"]
+            b = self.boundaries["b"]
+            f = self.initial_function
 
             amount_of_simulations = 1000000
             simulations = numpy.random.uniform(low=a, high=b, size=amount_of_simulations)
@@ -420,4 +414,4 @@ class Improper_Integral(Integration):
             return {"integral_value": integral_value}
         except Exception as e:
             if isDebug:
-                print("Exception occured at __monte_carlo_method__: " + str(e.args))
+                print("Exception occured at monte_carlo_method: " + str(e.args))

@@ -1,16 +1,16 @@
 from math_analysis import Derivation, Integration, Improper_Integral
 from config import isDebug, DIFFERENCIATION_POINT
-from differential_equation_system import Differential_Equations_System
+from equations_system import Differential_Equations_System
 
 class Manager:
     __instance = None
 
     is_initiate = False
 
-    __diff__ = None
-    __integral__ = None
-    __improper_integral__ = None
-    __equations_system__ = None
+    diff = None
+    integral = None
+    improper_integral = None
+    equations_system = None
 
     @staticmethod
     def inst():
@@ -18,10 +18,10 @@ class Manager:
             Manager.__instance = Manager()
 
             if not Manager.is_initiate:
-                Manager.__diff__ = Derivation(accuracy_order=4)
-                Manager.__integral__ = Integration()
-                Manager.__improper_integral__ = Improper_Integral()
-                Manager.__equations_system__ = Differential_Equations_System()
+                Manager.diff = Derivation(accuracy_order=4)
+                Manager.integral = Integration()
+                Manager.improper_integral = Improper_Integral()
+                Manager.equations_system = Differential_Equations_System()
                 Manager.is_initiate = True
 
         return Manager.__instance
@@ -37,18 +37,18 @@ class Manager:
                 if (command[0] == "diff"):
                     if (command[1] == "set-accuracy-order"):
                         accuracy_order = int(command[2])
-                        Manager.__diff__.set_accuracy_order(accuracy_order)
+                        Manager.diff.set_accuracy_order(accuracy_order)
 
                     elif (command[1] == "count"):
                         if (len(command) == 2):
                             command.append(str(DIFFERENCIATION_POINT))
-                        Manager.__diff__.count(float(command[2]), disp=True)
+                        Manager.diff.count(float(command[2]), disp=True)
 
                     elif (command[1] == "set-epsilon"):
-                        Manager.__diff__.set_epsilon(float(command[2]))
+                        Manager.diff.set_epsilon(float(command[2]))
 
                     elif (command[1] == "draw-graphic"):
-                        Manager.__diff__.draw(float(command[2]), float(command[3]))
+                        Manager.diff.draw(float(command[2]), float(command[3]))
                     else:
                         print("Invalid command: " + str(command[1]))
                         print("Here are next arguments for integrate:\n"
@@ -62,13 +62,13 @@ class Manager:
                             command.append("no-value")
 
                         if (command[2] == "simpson-method"):
-                            Manager.__integral__.count(method="simpson")
+                            Manager.integral.count(method="simpson")
 
                         elif (command[2] == "trapezoid-method"):
-                            Manager.__integral__.count(method="trapezoid")
+                            Manager.integral.count(method="trapezoid")
 
                         elif (command[2] == "gaussian-method"):
-                            Manager.__integral__.count(method="gaussian")
+                            Manager.integral.count(method="gaussian")
                         else:
                             print("You have to mention numerical method. Here are next integration methods:\n"
                                   "\tsimpson-method\n"
@@ -76,10 +76,10 @@ class Manager:
                                   "\tgaussian-method")
 
                     elif (command[1] == "set-epsilon"):
-                        Manager.__integral__.set_epsilon(float(command[2]))
+                        Manager.integral.set_epsilon(float(command[2]))
 
                     elif (command[1] == "set-boundaries"):
-                        Manager.__integral__.set_boundaries(
+                        Manager.integral.set_boundaries(
                             {"a" : float(command[2]), "b" : float(command[3])}
                         )
 
@@ -95,11 +95,11 @@ class Manager:
                             command.append("no-value")
 
                         if (command[2] == "cutting-method"):
-                            Manager.__improper_integral__.count(method="cutting")
+                            Manager.improper_integral.count(method="cutting")
                         elif (command[2] == "quadrature-method"):
-                            Manager.__improper_integral__.count(method="quadrature-formulas")
+                            Manager.improper_integral.count(method="quadrature-formulas")
                         elif (command[2] == "monte-carlo-method"):
-                            Manager.__improper_integral__.count(method="monte-carlo")
+                            Manager.improper_integral.count(method="monte-carlo")
                         else:
                             print("You have to mention numerical method. Here are next integration methods:\n"
                                   "\tсutting-method\n"
@@ -107,10 +107,10 @@ class Manager:
                                   "\tmonte-carlo-method\n")
 
                     elif (command[1] == "set-epsilon"):
-                        Manager.__improper_integral__.set_epsilon(float(command[2]))
+                        Manager.improper_integral.set_epsilon(float(command[2]))
 
                     elif (command[1] == "set-boundaries"):
-                        Manager.__improper_integral__.set_boundaries(
+                        Manager.improper_integral.set_boundaries(
                             {"a": float(command[2]), "b": float(command[3])}
                         )
                     else:
@@ -122,7 +122,7 @@ class Manager:
                               "\tset-boundaries [lower] [upper] - set boundaries of integration(change default value)\n")
                 elif (command[0] == "equations-system"):
                     if (command[1] == "count"):
-                        Manager.__equations_system__.draw_graphic()
+                        Manager.equations_system.draw_graphic()
                     else:
                         print("Invalid command: " + str(command[1]))
                         print("Here are next arguments for integrate:\n"
@@ -139,8 +139,7 @@ class Manager:
                           '\timproper-integral count [method] - count integral, using mentioned numerical method\n'
                           '\timproper-integral set-epsilon [value] - set computation error(change default value)\n'
                           '\timproper-integral set-boundaries [lower] [upper] - set boundaries of integration(change default value)\n\n'
-                          '\tequations-system count - compute result and show as graphic\n'
-                          '\nWARNING: Before counting differential or integral, you have to init objects!')
+                          '\tequations-system count - compute result and show as graphic\n')
                 else:
                     print("Invalid command: " + str(command[0]))
 
@@ -149,9 +148,6 @@ class Manager:
                 if isDebug:
                     print("Exception: " + str(e.args))
 
-if isDebug:
-    system_of_differential_equations = Differential_Equations_System()
-    system_of_differential_equations.draw_graphic()
-else:
-    manager = Manager.inst()
-    manager.run()
+
+manager = Manager.inst()
+manager.run()

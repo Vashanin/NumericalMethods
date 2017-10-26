@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cda8838f-3c41-4266-af20-232f3c8beb8a" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/differential_equation_system.py" afterPath="$PROJECT_DIR$/equations_system.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/differential_equation_system.py" afterPath="$PROJECT_DIR$/differential_equation_system.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manager.py" afterPath="$PROJECT_DIR$/manager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/math_analysis.py" afterPath="$PROJECT_DIR$/math_analysis.py" />
     </list>
@@ -21,33 +21,61 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="manager.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+            <state relative-caret-position="1314">
+              <caret line="141" column="91" lean-forward="false" selection-start-line="141" selection-start-column="91" selection-end-line="141" selection-end-column="91" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
-                <element signature="e#537#827#0" expanded="false" />
-                <element signature="e#891#8151#0" expanded="false" />
-                <element signature="e#2506#4171#0" expanded="false" />
-                <element signature="e#4250#6046#0" expanded="false" />
-                <element signature="e#4302#5150#0" expanded="false" />
-                <element signature="e#6124#6468#0" expanded="false" />
-                <element signature="e#6534#7886#0" expanded="false" />
+                <element signature="e#2446#4091#0" expanded="false" />
+                <element signature="e#4170#5946#0" expanded="false" />
+                <element signature="e#4222#5058#0" expanded="false" />
+                <element signature="e#6024#6364#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="differential_equation_system.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/differential_equation_system.py">
+      <file leaf-file-name="math_analysis.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/math_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="136" column="81" lean-forward="false" selection-start-line="136" selection-start-column="81" selection-end-line="136" selection-end-column="81" />
+            <state relative-caret-position="108">
+              <caret line="299" column="37" lean-forward="false" selection-start-line="299" selection-start-column="37" selection-end-line="299" selection-end-column="37" />
+              <folding>
+                <element signature="e#358#3456#0" expanded="false" />
+                <element signature="e#921#1403#0" expanded="false" />
+                <element signature="e#1490#1586#0" expanded="false" />
+                <element signature="e#1638#1664#0" expanded="false" />
+                <element signature="e#1700#1723#0" expanded="false" />
+                <element signature="e#1786#1826#0" expanded="false" />
+                <element signature="e#1885#1982#0" expanded="false" />
+                <element signature="e#2040#2881#0" expanded="false" />
+                <element signature="e#2924#3456#0" expanded="false" />
+                <element signature="e#3481#10763#0" expanded="false" />
+                <element signature="e#3583#3699#0" expanded="false" />
+                <element signature="e#4027#4548#0" expanded="false" />
+                <element signature="e#4619#6979#0" expanded="false" />
+                <element signature="e#7047#9616#0" expanded="false" />
+                <element signature="e#9685#10763#0" expanded="false" />
+                <element signature="e#10807#15139#0" expanded="false" />
+                <element signature="e#11600#12831#0" expanded="false" />
+                <element signature="e#12888#14311#0" expanded="false" />
+                <element signature="e#14360#15139#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="equations_system.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/equations_system.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#77#0" expanded="true" />
-                <element signature="e#1033#1726#0" expanded="false" />
+                <element signature="e#165#3830#0" expanded="false" />
+                <element signature="e#892#1585#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -56,37 +84,9 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="90">
+              <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="math_analysis.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/math_analysis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-              <folding>
-                <element signature="e#1306#1788#0" expanded="false" />
-                <element signature="e#1835#1846#0" expanded="false" />
-                <element signature="e#1883#1983#0" expanded="false" />
-                <element signature="e#2035#2061#0" expanded="false" />
-                <element signature="e#2097#2120#0" expanded="false" />
-                <element signature="e#2183#2227#0" expanded="false" />
-                <element signature="e#2286#2387#0" expanded="false" />
-                <element signature="e#2445#3135#0" expanded="false" />
-                <element signature="e#3178#3714#0" expanded="false" />
-                <element signature="e#3841#3969#0" expanded="false" />
-                <element signature="e#4309#4842#0" expanded="false" />
-                <element signature="e#4917#7190#0" expanded="false" />
-                <element signature="e#7262#9631#0" expanded="false" />
-                <element signature="e#9704#10784#0" expanded="false" />
-                <element signature="e#11645#12892#0" expanded="false" />
-                <element signature="e#12953#14394#0" expanded="false" />
-                <element signature="e#14447#15242#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -106,10 +106,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/differential_equation_system.py" />
-        <option value="$PROJECT_DIR$/math_analysis.py" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/manager.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="/media/vashanin/KINGSTON/labs/lab3/index.py" />
+        <option value="/media/vashanin/KINGSTON/labs/lab3/linear_approximation.py" />
+        <option value="$PROJECT_DIR$/math_analysis.py" />
+        <option value="$PROJECT_DIR$/equations_system.py" />
       </list>
     </option>
   </component>
@@ -120,9 +124,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-4" />
-    <option name="width" value="1920" />
-    <option name="height" value="1084" />
+    <option name="x" value="-1" />
+    <option name="y" value="-11" />
+    <option name="width" value="1922" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -162,7 +167,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/manager.py" />
+    <property name="last_opened_file_path" value="/media/vashanin/KINGSTON/labs/lab3/quadratic_approximation.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -366,18 +371,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1109375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06014271" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26911315" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1109375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -386,7 +392,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -405,17 +410,138 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/manager.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1314">
+          <caret line="141" column="91" lean-forward="false" selection-start-line="141" selection-start-column="91" selection-end-line="141" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+            <element signature="e#2446#4091#0" expanded="false" />
+            <element signature="e#4170#5946#0" expanded="false" />
+            <element signature="e#4222#5058#0" expanded="false" />
+            <element signature="e#6024#6364#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/equations_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <element signature="e#165#3830#0" expanded="false" />
+            <element signature="e#892#1585#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/math_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1332">
+          <caret line="190" column="37" lean-forward="false" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
+          <folding>
+            <element signature="e#358#3456#0" expanded="false" />
+            <element signature="e#921#1403#0" expanded="false" />
+            <element signature="e#1490#1586#0" expanded="false" />
+            <element signature="e#1638#1664#0" expanded="false" />
+            <element signature="e#1700#1723#0" expanded="false" />
+            <element signature="e#1786#1826#0" expanded="false" />
+            <element signature="e#1885#1982#0" expanded="false" />
+            <element signature="e#2040#2881#0" expanded="false" />
+            <element signature="e#2924#3456#0" expanded="false" />
+            <element signature="e#3481#10763#0" expanded="false" />
+            <element signature="e#3583#3699#0" expanded="false" />
+            <element signature="e#4027#4548#0" expanded="false" />
+            <element signature="e#4619#6979#0" expanded="false" />
+            <element signature="e#7047#9616#0" expanded="false" />
+            <element signature="e#9685#10763#0" expanded="false" />
+            <element signature="e#10807#15139#0" expanded="false" />
+            <element signature="e#11600#12831#0" expanded="false" />
+            <element signature="e#12888#14311#0" expanded="false" />
+            <element signature="e#14360#15139#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+            <element signature="e#2446#4091#0" expanded="false" />
+            <element signature="e#4170#5946#0" expanded="false" />
+            <element signature="e#4222#5058#0" expanded="false" />
+            <element signature="e#6024#6364#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/equations_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <element signature="e#165#3830#0" expanded="false" />
+            <element signature="e#892#1585#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/math_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3420">
+          <caret line="190" column="37" lean-forward="true" selection-start-line="190" selection-start-column="37" selection-end-line="190" selection-end-column="37" />
+          <folding>
+            <element signature="e#358#3456#0" expanded="false" />
+            <element signature="e#921#1403#0" expanded="false" />
+            <element signature="e#1490#1586#0" expanded="false" />
+            <element signature="e#1638#1664#0" expanded="false" />
+            <element signature="e#1700#1723#0" expanded="false" />
+            <element signature="e#1786#1826#0" expanded="false" />
+            <element signature="e#1885#1982#0" expanded="false" />
+            <element signature="e#2040#2881#0" expanded="false" />
+            <element signature="e#2924#3456#0" expanded="false" />
+            <element signature="e#3481#10763#0" expanded="false" />
+            <element signature="e#3583#3699#0" expanded="false" />
+            <element signature="e#4027#4548#0" expanded="false" />
+            <element signature="e#4619#6979#0" expanded="false" />
+            <element signature="e#7047#9616#0" expanded="false" />
+            <element signature="e#9685#10763#0" expanded="false" />
+            <element signature="e#10807#15139#0" expanded="false" />
+            <element signature="e#11600#12831#0" expanded="false" />
+            <element signature="e#12888#14311#0" expanded="false" />
+            <element signature="e#14360#15139#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-            <element signature="e#537#827#0" expanded="false" />
-            <element signature="e#891#8151#0" expanded="false" />
-            <element signature="e#2506#4171#0" expanded="false" />
-            <element signature="e#4250#6046#0" expanded="false" />
-            <element signature="e#4302#5150#0" expanded="false" />
-            <element signature="e#6124#6468#0" expanded="false" />
-            <element signature="e#6534#7886#0" expanded="false" />
+            <element signature="e#2446#4091#0" expanded="false" />
+            <element signature="e#4170#5946#0" expanded="false" />
+            <element signature="e#4222#5058#0" expanded="false" />
+            <element signature="e#6024#6364#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -436,8 +562,25 @@
         <state relative-caret-position="1944">
           <caret line="118" column="18" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="118" selection-end-column="18" />
           <folding>
-            <element signature="e#0#12#0" expanded="false" />
-            <element signature="e#1306#1788#0" expanded="false" />
+            <element signature="e#358#3456#0" expanded="false" />
+            <element signature="e#921#1403#0" expanded="false" />
+            <element signature="e#1490#1586#0" expanded="false" />
+            <element signature="e#1638#1664#0" expanded="false" />
+            <element signature="e#1700#1723#0" expanded="false" />
+            <element signature="e#1786#1826#0" expanded="false" />
+            <element signature="e#1885#1982#0" expanded="false" />
+            <element signature="e#2040#2881#0" expanded="false" />
+            <element signature="e#2924#3456#0" expanded="false" />
+            <element signature="e#3481#10763#0" expanded="false" />
+            <element signature="e#3583#3699#0" expanded="false" />
+            <element signature="e#4027#4548#0" expanded="false" />
+            <element signature="e#4619#6979#0" expanded="false" />
+            <element signature="e#7047#9616#0" expanded="false" />
+            <element signature="e#9685#10763#0" expanded="false" />
+            <element signature="e#10807#15139#0" expanded="false" />
+            <element signature="e#11600#12831#0" expanded="false" />
+            <element signature="e#12888#14311#0" expanded="false" />
+            <element signature="e#14360#15139#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -450,13 +593,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/differential_equation_system.py">
+    <entry file="file://$PROJECT_DIR$/equations_system.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
           <caret line="87" column="33" lean-forward="true" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
-            <element signature="e#1033#1726#0" expanded="false" />
+            <element signature="e#165#3830#0" expanded="false" />
+            <element signature="e#892#1585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -467,13 +611,10 @@
           <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-            <element signature="e#537#827#0" expanded="false" />
-            <element signature="e#891#8151#0" expanded="false" />
-            <element signature="e#2506#4171#0" expanded="false" />
-            <element signature="e#4250#6046#0" expanded="false" />
-            <element signature="e#4302#5150#0" expanded="false" />
-            <element signature="e#6124#6468#0" expanded="false" />
-            <element signature="e#6534#7886#0" expanded="false" />
+            <element signature="e#2446#4091#0" expanded="false" />
+            <element signature="e#4170#5946#0" expanded="false" />
+            <element signature="e#4222#5058#0" expanded="false" />
+            <element signature="e#6024#6364#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -494,8 +635,25 @@
         <state relative-caret-position="1944">
           <caret line="118" column="18" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="118" selection-end-column="18" />
           <folding>
-            <element signature="e#0#12#0" expanded="false" />
-            <element signature="e#1306#1788#0" expanded="false" />
+            <element signature="e#358#3456#0" expanded="false" />
+            <element signature="e#921#1403#0" expanded="false" />
+            <element signature="e#1490#1586#0" expanded="false" />
+            <element signature="e#1638#1664#0" expanded="false" />
+            <element signature="e#1700#1723#0" expanded="false" />
+            <element signature="e#1786#1826#0" expanded="false" />
+            <element signature="e#1885#1982#0" expanded="false" />
+            <element signature="e#2040#2881#0" expanded="false" />
+            <element signature="e#2924#3456#0" expanded="false" />
+            <element signature="e#3481#10763#0" expanded="false" />
+            <element signature="e#3583#3699#0" expanded="false" />
+            <element signature="e#4027#4548#0" expanded="false" />
+            <element signature="e#4619#6979#0" expanded="false" />
+            <element signature="e#7047#9616#0" expanded="false" />
+            <element signature="e#9685#10763#0" expanded="false" />
+            <element signature="e#10807#15139#0" expanded="false" />
+            <element signature="e#11600#12831#0" expanded="false" />
+            <element signature="e#12888#14311#0" expanded="false" />
+            <element signature="e#14360#15139#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -508,13 +666,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/differential_equation_system.py">
+    <entry file="file://$PROJECT_DIR$/equations_system.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="738">
           <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
-            <element signature="e#1033#1726#0" expanded="false" />
+            <element signature="e#165#3830#0" expanded="false" />
+            <element signature="e#892#1585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -530,64 +689,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="324">
+            <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/differential_equation_system.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="136" column="81" lean-forward="false" selection-start-line="136" selection-start-column="81" selection-end-line="136" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
-            <element signature="e#1033#1726#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/math_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-          <folding>
-            <element signature="e#1306#1788#0" expanded="false" />
-            <element signature="e#1835#1846#0" expanded="false" />
-            <element signature="e#1883#1983#0" expanded="false" />
-            <element signature="e#2035#2061#0" expanded="false" />
-            <element signature="e#2097#2120#0" expanded="false" />
-            <element signature="e#2183#2227#0" expanded="false" />
-            <element signature="e#2286#2387#0" expanded="false" />
-            <element signature="e#2445#3135#0" expanded="false" />
-            <element signature="e#3178#3714#0" expanded="false" />
-            <element signature="e#3841#3969#0" expanded="false" />
-            <element signature="e#4309#4842#0" expanded="false" />
-            <element signature="e#4917#7190#0" expanded="false" />
-            <element signature="e#7262#9631#0" expanded="false" />
-            <element signature="e#9704#10784#0" expanded="false" />
-            <element signature="e#11645#12892#0" expanded="false" />
-            <element signature="e#12953#14394#0" expanded="false" />
-            <element signature="e#14447#15242#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="108">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="28" column="18" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        <state relative-caret-position="1314">
+          <caret line="141" column="91" lean-forward="false" selection-start-line="141" selection-start-column="91" selection-end-line="141" selection-end-column="91" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
-            <element signature="e#537#827#0" expanded="false" />
-            <element signature="e#891#8151#0" expanded="false" />
-            <element signature="e#2506#4171#0" expanded="false" />
-            <element signature="e#4250#6046#0" expanded="false" />
-            <element signature="e#4302#5150#0" expanded="false" />
-            <element signature="e#6124#6468#0" expanded="false" />
-            <element signature="e#6534#7886#0" expanded="false" />
+            <element signature="e#2446#4091#0" expanded="false" />
+            <element signature="e#4170#5946#0" expanded="false" />
+            <element signature="e#4222#5058#0" expanded="false" />
+            <element signature="e#6024#6364#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///media/vashanin/KINGSTON/labs/lab3/index.py" />
+    <entry file="file:///media/vashanin/KINGSTON/labs/lab3/quadratic_approximation.py" />
+    <entry file="file:///media/vashanin/KINGSTON/labs/lab3/linear_approximation.py" />
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/math_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="299" column="37" lean-forward="false" selection-start-line="299" selection-start-column="37" selection-end-line="299" selection-end-column="37" />
+          <folding>
+            <element signature="e#358#3456#0" expanded="false" />
+            <element signature="e#921#1403#0" expanded="false" />
+            <element signature="e#1490#1586#0" expanded="false" />
+            <element signature="e#1638#1664#0" expanded="false" />
+            <element signature="e#1700#1723#0" expanded="false" />
+            <element signature="e#1786#1826#0" expanded="false" />
+            <element signature="e#1885#1982#0" expanded="false" />
+            <element signature="e#2040#2881#0" expanded="false" />
+            <element signature="e#2924#3456#0" expanded="false" />
+            <element signature="e#3481#10763#0" expanded="false" />
+            <element signature="e#3583#3699#0" expanded="false" />
+            <element signature="e#4027#4548#0" expanded="false" />
+            <element signature="e#4619#6979#0" expanded="false" />
+            <element signature="e#7047#9616#0" expanded="false" />
+            <element signature="e#9685#10763#0" expanded="false" />
+            <element signature="e#10807#15139#0" expanded="false" />
+            <element signature="e#11600#12831#0" expanded="false" />
+            <element signature="e#12888#14311#0" expanded="false" />
+            <element signature="e#14360#15139#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/equations_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <element signature="e#165#3830#0" expanded="false" />
+            <element signature="e#892#1585#0" expanded="false" />
           </folding>
         </state>
       </provider>
